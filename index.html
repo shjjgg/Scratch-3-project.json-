@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>最小化工具</title>
+        <meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="keywords" content="scratch, project.json, sb3, 压缩, 精简, 最小化">
+		<meta name="description" content="Scratch 项目是带有大小限制的 zip 压缩包。本工具用于压缩名为 project.json 的文件，最大限制为 5MiB。">
+		<link rel="stylesheet" href="style.css">
+		<script defer src="../vendor/JSZip/jszip.js"></script>
+		<script defer src="../vendor/FileSaver/FileSaver.js"></script>
+		<script defer src="downloader.js"></script>
+		<script defer src="project.js"></script>
+		<script defer src="idGenerator.js"></script>
+		<script defer src="minimizer.js"></script>
+		<script defer src="visual.js"></script>
+		<script defer src="main.js"></script>
+    </head>
+    <body>
+		<div class="uppertext">
+			<span class="title">全新实验版<br>
+			Scratch 3 project.json 最小化工具</span>
+		</div>
+		<div class="warning">
+			<span class="warningTitle">警告</span><br>
+			完全重写，尚未充分测试。<br>
+			可能存在损坏项目的 bug。
+		</div>
+		<div class="inb">
+			<div class="buttonHolder">
+				<input type="text" placeholder="请输入项目 URL 或 ID" id="urlInput" class="urlInput">
+				<button id="loadFromUrl">从 URL 加载</button>
+				<div class="divider"></div>
+				<button id="loadFromFile">选择本地文件</button>
+			</div>
+			<span id="importError" class="redText"></span>
+			<hr>
+			<input type="checkbox" class="option" name="clearMonitorValues"         checked><span>清除冗余监视器数据</span><br>
+			<input type="checkbox" class="option" name="clearUnusedMonitors"        checked><span>清除未使用的监视器</span><br>
+			<input type="checkbox" class="option" name="clearCovered"               checked><span>将被覆盖的值置空</span><br>
+			<input type="checkbox" class="option" name="dataNumberify"              checked><span>将数字字符串转为数字</span><br>
+			<input type="checkbox" class="option" name="dataRoundLastDigit"         checked><span>当能大幅缩短长度时四舍五入最后一位</span><br>
+			<input type="checkbox" class="option" name="roundBlockAndCommentCoords" checked><span>四舍五入积木和注释的位置</span><br>
+			<input type="checkbox" class="option" name="useListLast"                checked><span>使用 [列表] 的 [最后一项]</span><br>
+			<hr>
+			<b>压缩以下标识符</b><br>
+			<input type="checkbox" class="compressId" name="block"     checked><span>积木</span><br>
+			<input type="checkbox" class="compressId" name="argument"  checked><span>自定义积木参数</span><br>
+			<input type="checkbox" class="compressId" name="variable"  checked><span>变量</span><br>
+			<input type="checkbox" class="compressId" name="list"      checked><span>列表</span><br>
+			<input type="checkbox" class="compressId" name="broadcast" checked><span>广播</span><br>
+			<input type="checkbox" class="compressId" name="comment"   checked><span>注释</span><br>
+			<hr>
+			<input type="checkbox" class="option" name="dryRun"><span>测试模式（禁用保存）</span><br>
+			<hr>
+			结果：
+			<span id="message">暂无结果</span>
+			<div class="total">
+				<div class="new" id="newbar"></div>
+				<div class="old" id="oldbar"></div>
+			</div>
+			<b id="waitForDownload" style="display:none;">（请稍候，压缩文件即将开始下载）</b>
+			<input type="file" class="hidden" id="filePicker" accept=".sb3, .zip, .json">
+		</div>
+		<br>
+		<br>
+		<br>
+		<a href="https://scratch.mit.edu/users/Vadik1/">Vadik1 在 Scratch</a> | 
+		<a href="https://github.com/Xeltalliv/ScratchTools/blob/main/README.md">其他工具</a> | 
+		<a href="https://github.com/Xeltalliv/ScratchTools/tree/main/ProjectJsonMinimizerNew">源码</a>
+	</body>
+</html>
