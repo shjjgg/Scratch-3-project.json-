@@ -30,7 +30,7 @@ Scratch 项目文件（project.json）有体积限制，本工具可对其进行
 ## 致谢
 
 - 原作者：[Xeltalliv/ScratchTools](https://github.com/Xeltalliv/ScratchTools)
-- 汉化：你的名字（可填写 GitHub ID）
+- 汉化：shjjgg
 
 ## 开源协议
 
